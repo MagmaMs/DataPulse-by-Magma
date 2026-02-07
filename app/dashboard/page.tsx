@@ -30,6 +30,8 @@ function exportToCSV(submissions: any[]) {
 
 export default function Page() {
     const [submissions, setSubmissions] = useState<any[]>([])
+    const [summary, setSummary] = useState<string>("")
+    const [loadingAI, setLoadingAI] = useState(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -42,6 +44,21 @@ export default function Page() {
         }
         fetchData()
     }, [])
+    async function generateSummary() {
+        if (submissions.length === 0) return
+
+            setLoadingAI(true)
+
+            const res = await fetch("/api/ai-summary", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ submissions }),
+            })
+
+            const data = await res.json()
+            setSummary(data.summary)
+            setLoadingAI(false)
+    }
 
     const todayCount = submissions.filter((s) =>
     s.created_at?.startsWith(new Date().toISOString().slice(0, 10))
@@ -74,6 +91,24 @@ export default function Page() {
         >
         ⬇ Export CSV
         </button>
+        </div>
+        <div className="rounded-lg border p-4 bg-secondary space-y-3">
+        <div className="flex items-center justify-between">
+        <h2 className="text-sm font-medium">🧠 AI Overview</h2>
+
+        <button
+        onClick={generateSummary}
+        className="text-xs px-3 py-1.5 rounded-md border hover:bg-background transition"
+        >
+        {loadingAI ? "Generating..." : "Generate Insight"}
+        </button>
+        </div>
+
+        {summary && (
+            <p className="text-sm text-muted-foreground">
+            {summary}
+            </p>
+        )}
         </div>
 
         <div className="overflow-hidden rounded-lg border">
