@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 DataPulse – Simple Form Tracking & Analytics
 
-## Getting Started
+DataPulse is a lightweight web application that allows website owners to track form submissions in real time, view them in a clean admin dashboard, and export data to CSV — without using complex analytics tools.
 
-First, run the development server:
+Built for the **Prompt to Prototype** hackathon.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🔌 **Universal Form Tracking API**
+  - Any website can send form data using a simple POST request
+- 📊 **Admin Dashboard**
+  - View all submissions in one place
+  - Real‑time updates from the database
+- 📁 **CSV Export**
+  - Download all submissions for Excel / Google Sheets
+- ⚡ **Fully Deployed**
+  - Live backend + dashboard using cloud services
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend & Backend:** Next.js (App Router)
+- **Database:** Supabase (PostgreSQL)
+- **Hosting:** Vercel
+- **Styling:** Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📡 API Usage
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Endpoint
