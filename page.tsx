@@ -1,6 +1,5 @@
-import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
-
+'use client'
+import { supabase } from '@/lib/supabase'
 export default async function Page() {
   const cookieStore = await cookies()
   const supabase = createClient(cookieStore)
